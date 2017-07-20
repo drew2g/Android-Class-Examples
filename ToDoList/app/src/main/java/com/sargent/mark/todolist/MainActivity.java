@@ -94,6 +94,8 @@ public class MainActivity extends AppCompatActivity implements AddToDoFragment.O
             default:
                 break;
         }
+        //cursor = getAllItems(db);
+        adapter.swapCursor(cursor);
         return super.onOptionsItemSelected(item);
     }
 
