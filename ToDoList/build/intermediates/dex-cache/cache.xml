@@ -3,39 +3,156 @@
 
     <item
         is-multidex="true"
-        jar="/Users/mark/.android/build-cache/714aa8b7bc8b4e35519217c99868c9466b53b607/output/jars/classes.jar"
+        jar="C:\AndroidWorkspace\ToDoListApp\Android-Class-Examples\ToDoList\app\build\intermediates\incremental-classes\debug\instant-run-bootstrap.jar"
         jumboMode="true"
         optimize="true"
         revision="25.0.2"
+        sha1="9120aa352328c132a753a3e08474e315ef0e07f9">
+        <dex dex="C:\AndroidWorkspace\ToDoListApp\Android-Class-Examples\ToDoList\app\build\intermediates\transforms\dex\debug\folders\1000\10000\instant-run-bootstrap_54971e36dee8bf573b0a86f31baec24d5c330b76\classes.dex" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="C:\Users\nyand\.android\build-cache\0a35ce6b6df8a726fa11b79af02d55acc5507d8b\output\jars\classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.2"
+        sha1="efb8cb62d47d157c29d1521daac7eefd4cb881ee">
+        <dex dex="C:\AndroidWorkspace\ToDoListApp\Android-Class-Examples\ToDoList\app\build\intermediates\pre-dexed\debug\classes_62dbd05fc27ab1f12d7969423e96d5daf07a94e9.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="C:\Users\nyand\.android\build-cache\9636ac1cdfeea43999e8b2abda1e7d251f9bb206\output\jars\classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.2"
+        sha1="662d7533b25a666c649c10a16b42edfb95f25a4f">
+        <dex dex="C:\AndroidWorkspace\ToDoListApp\Android-Class-Examples\ToDoList\app\build\intermediates\pre-dexed\debug\classes_5ce71a1156a5a375eb8483276a8e8d285006be52.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="C:\Users\nyand\.android\build-cache\55ef414de3b972a16956af58c04b30bf72c8e269\output\jars\classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.2"
+        sha1="052f5f840f21174a3ecf6544130194e2652cbb73">
+        <dex dex="C:\AndroidWorkspace\ToDoListApp\Android-Class-Examples\ToDoList\app\build\intermediates\pre-dexed\debug\classes_948731f4f55d16cddcd93f5dbef5e7002844f7f1.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="C:\Users\nyand\.android\build-cache\5c9c56059fc108ccc1ee8206acc0613ba04a2b3f\output\jars\classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.2"
+        sha1="47635644d0d5c103c1dd8360549eb9ba3225c7d3">
+        <dex dex="C:\AndroidWorkspace\ToDoListApp\Android-Class-Examples\ToDoList\app\build\intermediates\pre-dexed\debug\classes_582c16fbf7be4400ce0b202c6ecf98adefa7bd26.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="C:\Users\nyand\.android\build-cache\6ad727e3de9553dcabce6adc0865fbea12f930ab\output\jars\classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.2"
+        sha1="45f697922e6f072daa12f8a2995dc77ab03c11da">
+        <dex dex="C:\AndroidWorkspace\ToDoListApp\Android-Class-Examples\ToDoList\app\build\intermediates\pre-dexed\debug\classes_a88195c889a70418d00a4a34526801dea649de65.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="C:\Users\nyand\AppData\Local\Android\sdk\extras\m2repository\com\android\support\constraint\constraint-layout-solver\1.0.0-beta4\constraint-layout-solver-1.0.0-beta4.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.2"
+        sha1="0a9cb567dc008f570c28531720168f19148da965">
+        <dex dex="C:\AndroidWorkspace\ToDoListApp\Android-Class-Examples\ToDoList\app\build\intermediates\pre-dexed\debug\constraint-layout-solver-1.0.0-beta4_696f6f406e0d929f3f6656e29a61b4d9662e2b5a.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="C:\Users\nyand\.android\build-cache\9f4cc3da78e873d8a450043e49d7598199a9cd47\output\jars\classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.2"
+        sha1="95519720620b553f63afc789beba9ad582807f7c">
+        <dex dex="C:\AndroidWorkspace\ToDoListApp\Android-Class-Examples\ToDoList\app\build\intermediates\pre-dexed\debug\classes_2e836feb653253a50cd25b7293767863b57719c2.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="C:\Users\nyand\.android\build-cache\e35a29cee98ded3af28b2cc3bfdc6ad2baa32c0e\output\jars\classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.2"
         sha1="38789e20ace9ab7dbd00554bd2673ab424478d3b">
-        <dex dex="/Users/mark/Desktop/AndroidClass/inclass/ToDoList/app/build/intermediates/transforms/dex/debug/folders/1000/10/classes_3050c67c5aac8e1dafcd3bdd9b03bb4a4e00d72e/classes.dex" />
+        <dex dex="C:\AndroidWorkspace\ToDoListApp\Android-Class-Examples\ToDoList\app\build\intermediates\pre-dexed\debug\classes_68fedd6b9d4b6f9677afe3c27ce5138eab9c3003.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="C:\Users\nyand\.android\build-cache\307f3190b482c5bb0860dacb350ce2937bd5c4b5\output\jars\classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.2"
+        sha1="150252b33b00274cc868578ade018fda0d43a3eb">
+        <dex dex="C:\AndroidWorkspace\ToDoListApp\Android-Class-Examples\ToDoList\app\build\intermediates\pre-dexed\debug\classes_687c1a9fbe8eaffcfd9de9902a0faf288253ee63.jar" />
     </item>
     <item
         is-multidex="true"
-        jar="/Users/mark/Desktop/AndroidClass/inclass/ToDoList/app/build/intermediates/incremental-runtime-classes/debug/instant-run.jar"
+        jar="C:\AndroidWorkspace\ToDoListApp\Android-Class-Examples\ToDoList\app\build\intermediates\incremental-runtime-classes\debug\instant-run.jar"
         jumboMode="true"
         optimize="true"
         revision="25.0.2"
         sha1="3be78ebc2706b2e1fe2f12d5726887a92d6c183b">
-        <dex dex="/Users/mark/Desktop/AndroidClass/inclass/ToDoList/app/build/intermediates/transforms/dex/debug/folders/1000/10000/instant-run_1c41d78b6335b2d6cedf2ad8cbc37a7ea7f98c22/classes.dex" />
+        <dex dex="C:\AndroidWorkspace\ToDoListApp\Android-Class-Examples\ToDoList\app\build\intermediates\transforms\dex\debug\folders\1000\10000\instant-run_64efc75a706ddeb8f538b29c2be65843ecc27eb0\classes.dex" />
     </item>
     <item
-        is-multidex="true"
-        jar="/Users/mark/.android/build-cache/593250c810594616a1a15c7655a1a8c3b2646fc4/output/jars/classes.jar"
-        jumboMode="true"
+        is-multidex="false"
+        jar="C:\Users\nyand\.android\build-cache\3ad5b9cb21a445e04981d11bc3848509e9df48c6\output\jars\classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.2"
+        sha1="da27a32db6af8954ee8061537c7d476fcb1df46f">
+        <dex dex="C:\AndroidWorkspace\ToDoListApp\Android-Class-Examples\ToDoList\app\build\intermediates\pre-dexed\debug\classes_a737ad38ae3eee4247799b8bae1e8de5be130c25.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="C:\Users\nyand\AppData\Local\Android\sdk\extras\android\m2repository\com\android\support\support-annotations\25.3.1\support-annotations-25.3.1.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.2"
+        sha1="bf8841d29fa39e077730e7a91222c2ce269fa7c9">
+        <dex dex="C:\AndroidWorkspace\ToDoListApp\Android-Class-Examples\ToDoList\app\build\intermediates\pre-dexed\debug\support-annotations-25.3.1_d727fa38454e1e419e2889d611a3444cb5a879ba.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="C:\Users\nyand\.android\build-cache\7f2cfde2adaead611a111b7fabd992807b2b331a\output\jars\classes.jar"
+        jumboMode="false"
         optimize="true"
         revision="25.0.2"
         sha1="d4cf6227dd6a2ceff0f7dcf0c324380b7abf2c28">
-        <dex dex="/Users/mark/Desktop/AndroidClass/inclass/ToDoList/app/build/intermediates/transforms/dex/debug/folders/1000/10/classes_8e0ef206c0c510729fb9cbbf7a4f25b276959675/classes.dex" />
+        <dex dex="C:\AndroidWorkspace\ToDoListApp\Android-Class-Examples\ToDoList\app\build\intermediates\pre-dexed\debug\classes_e6cf1bb1967c74e2dcdcd3be800114faa70600f9.jar" />
     </item>
     <item
-        is-multidex="true"
-        jar="/Users/mark/Desktop/AndroidClass/inclass/ToDoList/app/build/intermediates/incremental-classes/debug/instant-run-bootstrap.jar"
-        jumboMode="true"
+        is-multidex="false"
+        jar="C:\Users\nyand\.android\build-cache\f039ca64a8843ad002951d4841b4134ae53a0afa\output\jars\classes.jar"
+        jumboMode="false"
         optimize="true"
         revision="25.0.2"
-        sha1="2fc0ab07413d9cefa13ce76688f98e63890faaa3">
-        <dex dex="/Users/mark/Desktop/AndroidClass/inclass/ToDoList/app/build/intermediates/transforms/dex/debug/folders/1000/10000/instant-run-bootstrap_248a94d252828eb83a606f0af078799be5f1c862/classes.dex" />
+        sha1="d7c42c80f6509b9ea4db28ca7859ffae08ec5741">
+        <dex dex="C:\AndroidWorkspace\ToDoListApp\Android-Class-Examples\ToDoList\app\build\intermediates\pre-dexed\debug\classes_743dc3ca73949e47d3e8dfe8422f53c113189cc0.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="C:\Users\nyand\.android\build-cache\abbdd419a6f92a385c4f7036ec704f35e9202e45\output\jars\classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.2"
+        sha1="4a26a1154d053ab11aaf4c3967c42a4d66390991">
+        <dex dex="C:\AndroidWorkspace\ToDoListApp\Android-Class-Examples\ToDoList\app\build\intermediates\pre-dexed\debug\classes_788495e2a4a5dcf050fe3ba4ded600596df83e9f.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="C:\Users\nyand\.android\build-cache\5377f6ea3cd1918bdbcf9000dbeb721b415d607d\output\jars\classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.2"
+        sha1="6ef31f1555bb4cc513ec8d52711365a8b89f3600">
+        <dex dex="C:\AndroidWorkspace\ToDoListApp\Android-Class-Examples\ToDoList\app\build\intermediates\pre-dexed\debug\classes_8b14c5540373648328c60da3622c60601a82506c.jar" />
     </item>
 
 </items>

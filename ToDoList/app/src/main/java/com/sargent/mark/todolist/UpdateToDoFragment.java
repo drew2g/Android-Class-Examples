@@ -6,9 +6,13 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
+import android.widget.CheckBox;
 import android.widget.DatePicker;
 import android.widget.EditText;
+import android.widget.Spinner;
+
 
 import java.util.Calendar;
 
@@ -21,8 +25,12 @@ public class UpdateToDoFragment extends DialogFragment {
     private EditText toDo;
     private DatePicker dp;
     private Button add;
+    private CheckBox completed;
     private final String TAG = "updatetodofragment";
     private long id;
+    private boolean isCompleted = false;
+    private Spinner spin;
+
 
 
     public UpdateToDoFragment(){}
@@ -45,15 +53,25 @@ public class UpdateToDoFragment extends DialogFragment {
 
     //To have a way for the activity to get the data from the dialog
     public interface OnUpdateDialogCloseListener {
-        void closeUpdateDialog(int year, int month, int day, String description, long id);
+        void closeUpdateDialog(int year, int month, int day, String description, long id, String category, int isDone, boolean isCompleted);
     }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        View view = inflater.inflate(R.layout.fragment_to_do_adder, container, false);
+        final View view = inflater.inflate(R.layout.fragment_to_do_adder, container, false);
         toDo = (EditText) view.findViewById(R.id.toDo);
         dp = (DatePicker) view.findViewById(R.id.datePicker);
         add = (Button) view.findViewById(R.id.add);
+        completed = (CheckBox) view.findViewById(R.id.completed);
+
+        //spinny spin-spin spins spinningly
+        spin = (Spinner)view.findViewById(R.id.spinner);
+        String[] categories = new String[]{"School", "Work", "Groceries", "Relationship", "Bills"};
+        ArrayAdapter<String> adapter = new ArrayAdapter<String>(getContext(), android.R.layout.simple_spinner_dropdown_item, categories);
+        spin.setAdapter(adapter);
+
+
+
 
         int year = getArguments().getInt("year");
         int month = getArguments().getInt("month");
@@ -70,11 +88,12 @@ public class UpdateToDoFragment extends DialogFragment {
             public void onClick(View v) {
                 UpdateToDoFragment.OnUpdateDialogCloseListener activity = (UpdateToDoFragment.OnUpdateDialogCloseListener) getActivity();
                 Log.d(TAG, "id: " + id);
-                activity.closeUpdateDialog(dp.getYear(), dp.getMonth(), dp.getDayOfMonth(), toDo.getText().toString(), id);
+                activity.closeUpdateDialog(dp.getYear(), dp.getMonth(), dp.getDayOfMonth(), toDo.getText().toString(), id, spin.getSelectedItem().toString(),0,completed.isChecked()); //change "" and 0 later
                 UpdateToDoFragment.this.dismiss();
             }
         });
 
+        isCompleted = completed.isChecked();
         return view;
     }
 }

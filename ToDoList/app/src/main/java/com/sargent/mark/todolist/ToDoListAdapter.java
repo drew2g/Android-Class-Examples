@@ -2,6 +2,7 @@ package com.sargent.mark.todolist;
 
 import android.content.Context;
 import android.database.Cursor;
+import android.graphics.Color;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -46,7 +47,7 @@ public class ToDoListAdapter extends RecyclerView.Adapter<ToDoListAdapter.ItemHo
     }
 
     public interface ItemClickListener {
-        void onItemClick(int pos, String description, String duedate, long id);
+        void onItemClick(int pos, String description, String duedate, long id, View view);
     }
 
     public ToDoListAdapter(Cursor cursor, ItemClickListener listener) {
@@ -69,6 +70,7 @@ public class ToDoListAdapter extends RecyclerView.Adapter<ToDoListAdapter.ItemHo
         String duedate;
         String description;
         long id;
+        int isDone;
 
 
         ItemHolder(View view) {
@@ -85,15 +87,22 @@ public class ToDoListAdapter extends RecyclerView.Adapter<ToDoListAdapter.ItemHo
 
             duedate = cursor.getString(cursor.getColumnIndex(Contract.TABLE_TODO.COLUMN_NAME_DUE_DATE));
             description = cursor.getString(cursor.getColumnIndex(Contract.TABLE_TODO.COLUMN_NAME_DESCRIPTION));
+            isDone = cursor.getInt(cursor.getColumnIndex(Contract.TABLE_TODO.COLUMN_NAME_COMPLETED));
             descr.setText(description);
             due.setText(duedate);
             holder.itemView.setTag(id);
+
+            if(isDone == 1)
+            {
+                this.itemView.setBackgroundColor(Color.GRAY);
+            }
+            else{this.itemView.setBackgroundColor(Color.TRANSPARENT);}
         }
 
         @Override
         public void onClick(View v) {
             int pos = getAdapterPosition();
-            listener.onItemClick(pos, description, duedate, id);
+            listener.onItemClick(pos, description, duedate, id, v);
         }
     }
 

@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+        <item
+            android:id="@+id/all"
+            android:title="All" />
+
+        <item
+            android:id="@+id/school"
+            android:title="School" />
+        <item
+            android:id="@+id/work"
+            android:title="Work" />
+        <item
+            android:id="@+id/groceries"
+            android:title="Groceries" />
+        <item
+            android:id="@+id/bills"
+            android:title="Bills" />
+        <item
+            android:id="@+id/relationship"
+            android:title="Relationship" />
+
+</menu>

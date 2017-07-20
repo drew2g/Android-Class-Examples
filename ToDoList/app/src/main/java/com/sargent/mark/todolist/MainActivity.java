@@ -3,6 +3,7 @@ package com.sargent.mark.todolist;
 import android.content.ContentValues;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
+import android.graphics.Color;
 import android.support.annotation.Nullable;
 import android.support.design.widget.FloatingActionButton;
 import android.support.v4.app.FragmentManager;
@@ -13,6 +14,8 @@ import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.helper.ItemTouchHelper;
 import android.util.Log;
 import android.view.View;
+import android.view.Menu;
+import android.view.MenuItem;
 
 
 import com.sargent.mark.todolist.data.Contract;
@@ -27,6 +30,8 @@ public class MainActivity extends AppCompatActivity implements AddToDoFragment.O
     private SQLiteDatabase db;
     ToDoListAdapter adapter;
     private final String TAG = "mainactivity";
+    //private View currentListItem; //this was supposed to keep track of the current view but didn't work so I used bind in the todolistadapter
+    private Menu menu; //I will use this menu to place the spinner
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -47,6 +52,52 @@ public class MainActivity extends AppCompatActivity implements AddToDoFragment.O
     }
 
     @Override
+     public boolean onCreateOptionsMenu(Menu menu)
+    {
+        getMenuInflater().inflate(R.menu.filter_menu, menu);
+        this.menu = menu;
+        return true;
+    }
+
+    private Cursor filterCategory(SQLiteDatabase db, String category){ //for some reason this doesn't work :(
+        return db.query(
+            Contract.TABLE_TODO.TABLE_NAME, null, Contract.TABLE_TODO.COLUMN_NAME_CATEGORY + "=" + "'" + category + "'",
+                null,
+                null,
+                null,
+                null,
+                null);
+            }
+
+    @Override
+     public boolean onOptionsItemSelected(MenuItem item) {
+        int id = item.getItemId();
+        switch (id) {
+            case R.id.all:
+                cursor = getAllItems(db); //no filter
+                break;
+            case R.id.school:
+                cursor = filterCategory(db, "School"); //filter by school
+                break;
+            case R.id.work:
+                cursor = filterCategory(db, "Work"); //filter by work
+                break;
+            case R.id.groceries:
+                cursor = filterCategory(db, "Groceries"); //filter by groceries
+                break;
+            case R.id.relationship:
+                cursor = filterCategory(db, "Relationship"); //filter by relationship
+                break;
+            case R.id.bills:
+                cursor = filterCategory(db, "Bills"); //filter by bills
+                break;
+            default:
+                break;
+        }
+        return super.onOptionsItemSelected(item);
+    }
+
+    @Override
     protected void onStop() {
         super.onStop();
         if (db != null) db.close();
@@ -64,8 +115,9 @@ public class MainActivity extends AppCompatActivity implements AddToDoFragment.O
         adapter = new ToDoListAdapter(cursor, new ToDoListAdapter.ItemClickListener() {
 
             @Override
-            public void onItemClick(int pos, String description, String duedate, long id) {
+            public void onItemClick(int pos, String description, String duedate, long id, View thisListItem) {
                 Log.d(TAG, "item click id: " + id);
+
                 String[] dateInfo = duedate.split("-");
                 int year = Integer.parseInt(dateInfo[0].replaceAll("\\s",""));
                 int month = Integer.parseInt(dateInfo[1].replaceAll("\\s",""));
@@ -75,6 +127,7 @@ public class MainActivity extends AppCompatActivity implements AddToDoFragment.O
 
                 UpdateToDoFragment frag = UpdateToDoFragment.newInstance(year, month, day, description, id);
                 frag.show(fm, "updatetodofragment");
+                //currentListItem = thisListItem;//this will save the current position of the recycler view item so that we can color it later
             }
         });
 
@@ -98,8 +151,8 @@ public class MainActivity extends AppCompatActivity implements AddToDoFragment.O
     }
 
     @Override
-    public void closeDialog(int year, int month, int day, String description) {
-        addToDo(db, description, formatDate(year, month, day));
+    public void closeDialog(int year, int month, int day, String description, String category, int isDone) {
+        addToDo(db, description, formatDate(year, month, day), category, isDone);
         cursor = getAllItems(db);
         adapter.swapCursor(cursor);
     }
@@ -121,11 +174,13 @@ public class MainActivity extends AppCompatActivity implements AddToDoFragment.O
                 Contract.TABLE_TODO.COLUMN_NAME_DUE_DATE
         );
     }
-
-    private long addToDo(SQLiteDatabase db, String description, String duedate) {
+    //added a category string and an isDone int to the to do database.
+    private long addToDo(SQLiteDatabase db, String description, String duedate, String category, int isDone) {
         ContentValues cv = new ContentValues();
         cv.put(Contract.TABLE_TODO.COLUMN_NAME_DESCRIPTION, description);
         cv.put(Contract.TABLE_TODO.COLUMN_NAME_DUE_DATE, duedate);
+        cv.put(Contract.TABLE_TODO.COLUMN_NAME_CATEGORY, category);
+        cv.put(Contract.TABLE_TODO.COLUMN_NAME_COMPLETED, isDone);
         return db.insert(Contract.TABLE_TODO.TABLE_NAME, null, cv);
     }
 
@@ -135,20 +190,40 @@ public class MainActivity extends AppCompatActivity implements AddToDoFragment.O
     }
 
 
-    private int updateToDo(SQLiteDatabase db, int year, int month, int day, String description, long id){
+    private int updateToDo(SQLiteDatabase db, int year, int month, int day, String description, long id, String category, int isDone){
 
         String duedate = formatDate(year, month - 1, day);
 
         ContentValues cv = new ContentValues();
         cv.put(Contract.TABLE_TODO.COLUMN_NAME_DESCRIPTION, description);
         cv.put(Contract.TABLE_TODO.COLUMN_NAME_DUE_DATE, duedate);
+        cv.put(Contract.TABLE_TODO.COLUMN_NAME_CATEGORY, category);
+        cv.put(Contract.TABLE_TODO.COLUMN_NAME_COMPLETED, isDone);
 
         return db.update(Contract.TABLE_TODO.TABLE_NAME, cv, Contract.TABLE_TODO._ID + "=" + id, null);
     }
 
     @Override
-    public void closeUpdateDialog(int year, int month, int day, String description, long id) {
-        updateToDo(db, year, month, day, description, id);
+    public void closeUpdateDialog(int year, int month, int day, String description, long id, String category, int isDone, boolean isCompleted) {
+
+
+        if(isCompleted) //if checkbox is checked...
+        {
+            //go into the db and change the value of isDone to true for id = id
+            isDone = 1;
+            //this.rv.setBackgroundColor(isCompleted ? 0xFFAED581 : 0xFF0000);
+            //currentListItem.setBackgroundColor(Color.RED);
+
+
+        }
+        else{
+            isDone = 0;
+            //this.rv.setBackgroundColor(isCompleted ? 0xFFAED581 : 0x000000);
+            //currentListItem.setBackgroundColor(Color.TRANSPARENT);
+
+        }
+
+        updateToDo(db, year, month, day, description, id, category, isDone);
         adapter.swapCursor(getAllItems(db));
     }
 }
