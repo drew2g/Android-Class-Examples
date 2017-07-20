@@ -52,7 +52,7 @@ public class MainActivity extends AppCompatActivity implements AddToDoFragment.O
     }
 
     @Override
-     public boolean onCreateOptionsMenu(Menu menu)
+     public boolean onCreateOptionsMenu(Menu menu) //this inflates the menu where the category choices will be shown
     {
         getMenuInflater().inflate(R.menu.filter_menu, menu);
         this.menu = menu;
@@ -95,7 +95,7 @@ public class MainActivity extends AppCompatActivity implements AddToDoFragment.O
                 break;
         }
         //cursor = getAllItems(db);
-        adapter.swapCursor(cursor);
+        adapter.swapCursor(cursor); //this will refresh the cursor so that the view shows the filtered cursor
         return super.onOptionsItemSelected(item);
     }
 
@@ -156,7 +156,7 @@ public class MainActivity extends AppCompatActivity implements AddToDoFragment.O
     public void closeDialog(int year, int month, int day, String description, String category, int isDone) {
         addToDo(db, description, formatDate(year, month, day), category, isDone);
         cursor = getAllItems(db);
-        adapter.swapCursor(cursor);
+        adapter.swapCursor(cursor); //changes the cursor so that all categories are shown
     }
 
     public String formatDate(int year, int month, int day) {
@@ -199,8 +199,8 @@ public class MainActivity extends AppCompatActivity implements AddToDoFragment.O
         ContentValues cv = new ContentValues();
         cv.put(Contract.TABLE_TODO.COLUMN_NAME_DESCRIPTION, description);
         cv.put(Contract.TABLE_TODO.COLUMN_NAME_DUE_DATE, duedate);
-        cv.put(Contract.TABLE_TODO.COLUMN_NAME_CATEGORY, category);
-        cv.put(Contract.TABLE_TODO.COLUMN_NAME_COMPLETED, isDone);
+        cv.put(Contract.TABLE_TODO.COLUMN_NAME_CATEGORY, category); //added category column to put into content value
+        cv.put(Contract.TABLE_TODO.COLUMN_NAME_COMPLETED, isDone); //added isdone column to put into content value
 
         return db.update(Contract.TABLE_TODO.TABLE_NAME, cv, Contract.TABLE_TODO._ID + "=" + id, null);
     }
@@ -225,7 +225,7 @@ public class MainActivity extends AppCompatActivity implements AddToDoFragment.O
 
         }
 
-        updateToDo(db, year, month, day, description, id, category, isDone);
+        updateToDo(db, year, month, day, description, id, category, isDone); //updates query
         adapter.swapCursor(getAllItems(db));
     }
 }
